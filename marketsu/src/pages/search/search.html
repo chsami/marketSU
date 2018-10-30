@@ -1,22 +1,33 @@
-<ion-header>
-
-    <ion-navbar>
-        <ion-title>{{ 'SEARCH_TITLE' | translate }}</ion-title>
-    </ion-navbar>
-    <ion-searchbar color="dark" (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
-    <ion-list>
-        <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
-            <ion-avatar item-start>
-                <img [src]="item.profilePic" />
-            </ion-avatar>
-            <h2>{{item.name}}</h2>
-            <p>{{item.about}}</p>
-            <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
-        </button>
-    </ion-list>
-</ion-header>
-
+<ng-container *ngIf="selectedMarker < 0">
+    <!-- <ion-header>
+        <ion-navbar>
+            <ion-title>{{ 'SEARCH_TITLE' | translate }}</ion-title>
+        </ion-navbar>
+        <ion-searchbar color="dark" (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+        <ion-list>
+            <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
+                <ion-avatar item-start>
+                    <img [src]="item.profilePic" />
+                </ion-avatar>
+                <h2>{{item.name}}</h2>
+                <p>{{item.about}}</p>
+                <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+            </button>
+        </ion-list>
+    </ion-header> -->
+    <ion-header>
+        <ion-navbar>
+            <h1>New Target</h1>
+        </ion-navbar>
+    </ion-header>
+</ng-container>
 <ion-content>
-   
     <div #map id="map"></div>
 </ion-content>
+
+<ion-footer>
+    <ion-buttons end *ngIf="selectedMarker >= 0">
+        <button *ngIf="markerInCreationState()" ion-button color="dark" (click)="deleteMarker()">Cancel</button>
+        <button ion-button (click)="saveMarker()">Next</button>
+    </ion-buttons>
+</ion-footer>

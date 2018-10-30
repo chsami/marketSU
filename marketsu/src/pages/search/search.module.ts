@@ -3,6 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { SearchPage } from './search';
+import { Markers } from '../../providers/markers/markers';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SearchPage } from './search';
   ],
   exports: [
     SearchPage
-  ]
+  ],
+  providers: [Markers]
 })
 export class SearchPageModule { }

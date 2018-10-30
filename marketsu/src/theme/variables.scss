@@ -47,7 +47,7 @@ $colors: (
 // Material Design only Sass variables can go here
 
 $searchbar-md-input-background-color: color($colors, lightdark) !important;
-
+.toolbar-content-md { color: color($colors, lightdark); }
 
 
 // App Windows Variables
